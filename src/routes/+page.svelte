@@ -1,2 +1,18 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    let rawInput = "";
+    let parsedInput = "";
+
+    function handleInput() {
+        parsedInput = rawInput;
+    }
+</script>
+
+<div class="mx-auto flex max-w-md flex-col items-center gap-4">
+    <h1 class="text-3xl font-bold">Kagelisten</h1>
+
+    <textarea bind:value={rawInput}></textarea>
+
+    <button class="w-fit rounded-full bg-red-200 px-4 py-2" on:click={handleInput}>Parse</button>
+
+    <pre>{parsedInput}</pre>
+</div>
