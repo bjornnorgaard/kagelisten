@@ -14,17 +14,17 @@
             if (!line.split(":")[1]?.trim()) continue;
 
             if (line.includes("Kage:")) {
-                saints = [ ...saints, line.replace("Kage:", "") ];
+                saints = [ ...saints, line.replace("Kage:", "").trim() ];
             } else if (line.includes("Frugt:")) {
-                saints = [ ...saints, line.replace("Frugt:", "") ];
+                saints = [ ...saints, line.replace("Frugt:", "").trim() ];
             } else if (line.includes("Pizzasnegle:")) {
-                saints = [ ...saints, line.replace("Pizzasnegle:", "") ];
+                saints = [ ...saints, line.replace("Pizzasnegle:", "").trim() ];
             } else if (line.includes("Salat:")) {
-                saints = [ ...saints, line.replace("Salat:", "") ];
+                saints = [ ...saints, line.replace("Salat:", "").trim() ];
             } else if (line.includes("Pølsehorn:")) {
-                saints = [ ...saints, line.replace("Pølsehorn:", "") ];
+                saints = [ ...saints, line.replace("Pølsehorn:", "").trim() ];
             } else if (line.includes("Stole:")) {
-                saints = [ ...saints, line.replace("Stole:", "") ];
+                saints = [ ...saints, line.replace("Stole:", "").trim() ];
             }
         }
 
