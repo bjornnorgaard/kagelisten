@@ -41,6 +41,6 @@
 </script>
 
 <label class="w-full">
-    <span>De Artige</span>
-    <textarea class="w-full p-2" rows={textareaCols} bind:value={rawSaintsString}></textarea>
+    <b>De Artige</b>
+    <textarea rows={textareaCols} bind:value={rawSaintsString} on:input={parseInput}></textarea>
 </label>
