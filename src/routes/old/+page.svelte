@@ -43,17 +43,17 @@ X Y Z
             if (!line.split(":")[1]?.trim()) continue;
 
             if (line.includes("Kage:")) {
-                saints = [ ...saints, line.replace("Kage:", "").trim() ];
+                saints = [...saints, line.replace("Kage:", "").trim()];
             } else if (line.includes("Frugt:")) {
-                saints = [ ...saints, line.replace("Frugt:", "").trim() ];
+                saints = [...saints, line.replace("Frugt:", "").trim()];
             } else if (line.includes("Pizzasnegle:")) {
-                saints = [ ...saints, line.replace("Pizzasnegle:", "").trim() ];
+                saints = [...saints, line.replace("Pizzasnegle:", "").trim()];
             } else if (line.includes("Salat:")) {
-                saints = [ ...saints, line.replace("Salat:", "").trim() ];
+                saints = [...saints, line.replace("Salat:", "").trim()];
             } else if (line.includes("Pølsehorn:")) {
-                saints = [ ...saints, line.replace("Pølsehorn:", "").trim() ];
+                saints = [...saints, line.replace("Pølsehorn:", "").trim()];
             } else if (line.includes("Stole:")) {
-                saints = [ ...saints, line.replace("Stole:", "").trim() ];
+                saints = [...saints, line.replace("Stole:", "").trim()];
             }
         }
 
@@ -65,7 +65,7 @@ X Y Z
             line = line.trim();
 
             if (!saints.includes(line)) {
-                slackers = [ ...slackers, line ];
+                slackers = [...slackers, line];
             }
         }
 
@@ -75,7 +75,7 @@ X Y Z
             line = line.trim();
 
             if (!allLineSplit.includes(line)) {
-                unknownSaints = [ ...unknownSaints, line ];
+                unknownSaints = [...unknownSaints, line];
             }
         }
 
@@ -87,7 +87,7 @@ X Y Z
             } else if (!line.split(":")[1]?.trim()) {
                 let slacker = tempSlackers.pop();
                 if (slacker !== undefined) {
-                    saintSlackers = [ ...saintSlackers, slacker ];
+                    saintSlackers = [...saintSlackers, slacker];
                 } else {
                     slacker = 'MANGLER SLACKERS';
                 }

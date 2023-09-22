@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { everyone, rawSaints, saints } from "$lib/stores";
+    import {onMount} from "svelte";
+    import {rawSaints, saints} from "$lib/stores";
+    import {textareaCols} from "$lib/constants";
 
     let rawSaintsString = "Mandag d. XX/XX\n" +
         "Kage: Rachana Cokkie Cheng\n" +
@@ -15,7 +16,7 @@
         "Frugt: \n" +
         "Frugt: \n";
 
-    const words = [ "Kage", "Frugt" ];
+    const words = ["Kage", "Frugt"];
 
     onMount(() => parseInput()); // TODO: Remove when done.
 
@@ -41,5 +42,5 @@
 
 <label class="w-full">
     <span>De Artige</span>
-    <textarea class="w-full p-2" rows="7" bind:value={rawSaintsString}></textarea>
+    <textarea class="w-full p-2" rows={textareaCols} bind:value={rawSaintsString}></textarea>
 </label>

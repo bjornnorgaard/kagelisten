@@ -1,9 +1,7 @@
 <script>
     import RawSaintsInput from "./RawSaintsInput.svelte";
     import RawEveryoneInput from "./RawEveryoneInput.svelte";
-    import { everyone, saints, unknown } from "$lib/stores";
-
-
+    import {everyone, saints, unknown} from "$lib/stores";
 </script>
 
 <div class="flex gap-4">

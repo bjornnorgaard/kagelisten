@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { everyone } from "$lib/stores";
-    import { onMount } from "svelte";
+    import {everyone} from "$lib/stores";
+    import {onMount} from "svelte";
+    import {textareaCols} from "$lib/constants";
 
     let rawEveryone = "Rachana Cokkie Cheng\n" +
         "Marina Samson Slávka\n" +
@@ -26,5 +27,5 @@
 
 <label class="w-full">
     <span>Allesammen</span>
-    <textarea class="w-full p-2" rows="7" bind:value={rawEveryone} on:input={parseInput}></textarea>
+    <textarea class="w-full p-2" rows={textareaCols} bind:value={rawEveryone} on:input={parseInput}></textarea>
 </label>
