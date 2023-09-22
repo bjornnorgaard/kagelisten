@@ -137,5 +137,7 @@ dist
 .svelte-kit/
 package
 
+vite.config.ts.timestamp-*.mjs
+
 # Jetbrains
 .idea
