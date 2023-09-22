@@ -1,6 +1,6 @@
 <script>
     import "../app.css";
-    import "@picocss/pico";
+    import "@picocss/pico/css/pico.min.css";
 </script>
 
 <main class="container">
