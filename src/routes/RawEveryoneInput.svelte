@@ -26,6 +26,6 @@
 </script>
 
 <label class="w-full">
-    <span>Allesammen</span>
-    <textarea class="w-full p-2" rows={textareaCols} bind:value={rawEveryone} on:input={parseInput}></textarea>
+    <b>Allesammen</b>
+    <textarea rows={textareaCols} bind:value={rawEveryone} on:input={parseInput}></textarea>
 </label>
