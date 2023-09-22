@@ -1,5 +1,6 @@
 {
 	"name": "kagelisten",
+	"type": "module",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -19,7 +20,7 @@
 		"tailwindcss": "^3.3.3",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
+		"@picocss/pico": "^1.5.10",
 		"vite": "^4.4.2"
-	},
-	"type": "module"
+	}
 }
