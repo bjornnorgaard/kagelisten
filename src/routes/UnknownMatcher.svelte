@@ -29,15 +29,17 @@
 
 </script>
 
-<div class="flex flex-wrap bg-green-50">
+<div class="flex flex-wrap">
     {#each $data as u (u.name)}
-        <div class="basis-1/2 border-2 bg-blue-50 p-2">
+        <div class="basis-1/2 p-2">
             {#if replacements.get(u.original) && replacements.get(u.original) !== u.original}
-                <span class="line-through">{u.original}</span>
                 <b>{replacements.get(u.original)}</b>
+                <span class="line-through">{u.original}</span>
             {:else}
                 <b>{u.name}</b>
             {/if}
+
+            <br>
 
             <fieldset>
                 {#if u.suggestions.length}
@@ -66,6 +68,11 @@
 
 <br>
 
-{#each replacements as [k, v]}
-    <p>"{k}" bliver til "{v}"</p>
-{/each}
+<ul class="p-6">
+    {#each replacements as [k, v]}
+        <li>{k} bliver til "{v}"</li>
+    {/each}
+</ul>
+
+
+<button disabled={replacements.size !== $unknown.length}>Bekræft og gem</button>
