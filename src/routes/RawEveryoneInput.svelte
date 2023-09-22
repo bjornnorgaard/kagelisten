@@ -25,7 +25,7 @@
     }
 </script>
 
-<label class="w-full">
+<label>
     <b>Allesammen</b>
     <textarea rows={textareaCols} bind:value={rawEveryone} on:input={parseInput}></textarea>
 </label>

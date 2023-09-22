@@ -3,6 +3,8 @@
     import "@picocss/pico/css/pico.css";
 </script>
 
-<div class="h-full p-4">
+<main class="container">
+    <h1>Kagelisten</h1>
+
     <slot/>
-</div>
+</main>
