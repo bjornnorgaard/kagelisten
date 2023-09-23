@@ -141,3 +141,6 @@ vite.config.ts.timestamp-*.mjs
 
 # Jetbrains
 .idea
+
+ # Vercel
+.vercel
