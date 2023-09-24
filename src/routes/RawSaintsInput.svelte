@@ -3,6 +3,22 @@
     import {rawSaints} from "$lib/stores";
     import {textareaCols} from "$lib/constants";
 
+    const testData = "Mandag d. XX/XX\n" +
+        "Kage: Rachana Cokkie Cheng\n" +
+        "Kage: Marina Samson Slávkap\n" +
+        "Kage: Kemuel Misho Hurşit\n" +
+        "Kage: Sintija Sid Aleksey\n" +
+        "Kage: Artur Ceres Aruna\n" +
+        "Kage: Mikhael Bøjsen Hansen\n" +
+        "Kage: John Han Bojsen\n" +
+        "Kage: Emma Jørgensen\n" +
+        "Kage: Jørgen Emmason\n" +
+        "Kage: Emma\n" +
+        "Kage:\n" +
+        "Frugt:\n" +
+        "Frugt:\n" +
+        "Frugt:\n";
+
     onMount(() => parseInput());
 
     function parseInput() {
@@ -11,6 +27,6 @@
 </script>
 
 <label class="raw-input-container">
-    <span>De Artige</span>
+    <span on:click={() => rawSaints.set(testData)}>De Artige</span>
     <textarea rows={textareaCols} bind:value={$rawSaints} on:input={parseInput}></textarea>
 </label>
