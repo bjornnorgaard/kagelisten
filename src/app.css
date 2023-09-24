@@ -1,22 +1,8 @@
-/*@import "@picocss/pico/css/pico.min.css";*/
+@import "@picocss/pico/css/pico.min.css";
 /* @tailwind base; */
 /* @tailwind components; */
 @tailwind utilities;
 
-html {
-    @apply h-full bg-amber-200;
-    font-family: Helvetica, Arial, sans-serif;
-
-}
-
 .raw-input-container {
-    @apply flex h-fit w-full flex-col gap-2;
-}
-
-textarea {
-    @apply basis-5/12 p-2;
-}
-
-section {
-    @apply rounded bg-amber-50 shadow-xl pb-6 px-6;
+    @apply flex w-full flex-col;
 }

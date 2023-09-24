@@ -2,7 +2,7 @@
     import "../app.css";
 </script>
 
-<main class="max-w-xl mx-auto">
+<main class="container">
     <h1>Kagelisten</h1>
 
     <slot/>

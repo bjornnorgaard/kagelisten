@@ -5,28 +5,16 @@
     import UnknownMatcher from "./UnknownMatcher.svelte";
 </script>
 
-<div class="flex flex-col gap-4">
+<section class="grid">
+    <RawSaintsInput/>
+    <RawEveryoneInput/>
+</section>
+
+{#if $unknown.length}
     <section>
-        <h2>Copy/paste data</h2>
-        <div class="sm:flex sm:gap-4">
-            <RawSaintsInput/>
-            <RawEveryoneInput/>
-        </div>
+        <UnknownMatcher/>
     </section>
-
-
-    {#if $unknown.length}
-        <section>
-            <h2>Ret ukendte</h2>
-            <UnknownMatcher/>
-        </section>
-    {:else}
-        <section>
-            <h2>Ingen ukendte</h2>
-            <span>Alle navne fra 'De Artige' er fundet i 'Allesammen'.</span>
-        </section>
-    {/if}
-</div>
+{/if}
 
 <div class="flex gap-4">
     <pre>Everyone{JSON.stringify($everyone, null, 2)}</pre>
