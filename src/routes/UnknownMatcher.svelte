@@ -3,7 +3,7 @@
     import { derived } from "svelte/store";
     import Fuse from "fuse.js";
 
-    // Key is the original name, value is the new name
+    // Key is the original name, value is the new corrected name
     let replacements = new Map<string, string>();
 
     const data = derived([ unknown, everyone ], ([ $unknown, $everyone ]) => {
