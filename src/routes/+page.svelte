@@ -13,7 +13,7 @@
 </section>
 
 {#if $unknown.length && $everyone.length && $rawSaints.length}
-    <section in:slide>
+    <section in:slide out:slide>
         <UnknownMatcher />
     </section>
 {/if}
