@@ -1,15 +1,13 @@
 <script lang="ts">
-    import { everyone, unknown } from "$lib/stores";
-    import { derived } from "svelte/store";
+    import {everyone, rawSaints, unknown} from "$lib/stores";
+    import {derived} from "svelte/store";
     import Fuse from "fuse.js";
 
-    // Key is the original name, value is the new corrected name
     let replacements = new Map<string, string>();
 
-    const data = derived([ unknown, everyone ], ([ $unknown, $everyone ]) => {
-        return $unknown.map((u, i) => {
+    const data = derived([unknown, everyone], ([$unknown, $everyone]) => {
+        return $unknown.map((u, _) => {
             return {
-                index: i,
                 name: u,
                 original: u,
                 suggestions: findSuggestions(u, $everyone),
@@ -18,7 +16,7 @@
     }, []);
 
     function findSuggestions(name: string, all: string[]): string[] {
-        const fuseOptions = { threshold: 0.5 };
+        const fuseOptions = {threshold: 0.5};
         const fuse = new Fuse(all, fuseOptions);
         return fuse.search(name).map((r) => r.item);
     }
@@ -27,20 +25,36 @@
         replacements = replacements.set(unknownName, suggestion);
     }
 
+    function confirmChanges() {
+        rawSaints.update((rawSaintsValue) => {
+            const copiedRawSaints = rawSaintsValue.split("\n");
+
+            for (let i = 0; i < copiedRawSaints.length; i++) {
+                let line = copiedRawSaints[i];
+                if (!line.includes(": ")) continue;
+
+                const lineSplit = line.split(":");
+                const prefix = lineSplit[0];
+                let name = lineSplit[1].trim();
+
+                if (replacements.has(name)) {
+                    name = replacements.get(name) ?? name;
+                }
+
+                copiedRawSaints[i] = `${prefix}: ${name}`;
+            }
+
+            rawSaintsValue = copiedRawSaints.join("\n");
+
+            return rawSaintsValue;
+        })
+    }
 </script>
 
-<div class="flex flex-col gap-4">
+<div class="grid md:grid-cols-2 gap-8">
     {#each $data as u (u.name)}
         <div>
-            <div>
-                {#if replacements.get(u.original) && replacements.get(u.original) !== u.original}
-                    <span class="opacity-60">{u.original}</span>
-                    er faktisk <span class="underline">{replacements.get(u.name)}</span>
-                {:else}
-                    <span>Hvem er {u.original}?</span>
-                {/if}
-            </div>
-
+            <span>Hvem er {u.original}?</span>
             <fieldset class="mt-2 flex flex-col">
                 {#if u.suggestions.length}
                     <legend><span>Mulige rettelser</span></legend>
@@ -59,3 +73,8 @@
         </div>
     {/each}
 </div>
+
+<button class="w-full p-1 mt-8" disabled={replacements.size !== $unknown.length} on:click={() => confirmChanges()}>
+    Bekræft ændringer og overskriv 'De Artige'
+</button>
+

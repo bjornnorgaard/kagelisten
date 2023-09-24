@@ -1,12 +1,22 @@
-/* @import "@picocss/pico/css/pico.min.css";  */
+/*@import "@picocss/pico/css/pico.min.css";*/
 /* @tailwind base; */
 /* @tailwind components; */
 @tailwind utilities;
 
+html {
+    @apply h-full;
+    font-family: Helvetica, Arial, sans-serif;
+    background-image: linear-gradient(130deg, rgba(253, 189, 85, 1) 7.8%, rgba(249, 131, 255, 1) 100.3%);
+}
+
 .raw-input-container {
-    @apply flex flex-col w-full h-fit;
+    @apply flex h-fit w-full flex-col;
 }
 
 textarea {
-    @apply basis-5/12;
+    @apply basis-5/12 p-2;
+}
+
+section {
+    @apply rounded bg-amber-50 shadow-xl pb-6 px-6;
 }
