@@ -8,5 +8,3 @@ export const saints = writable<string[]>([]);
 export const unknown = derived([saints, everyone], ([$saints, $everyone]) => {
     return $saints.filter((name) => !$everyone.includes(name));
 });
-
-
