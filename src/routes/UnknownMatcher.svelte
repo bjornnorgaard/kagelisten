@@ -51,7 +51,7 @@
     }
 </script>
 
-<div class="grid md:grid-cols-2 gap-8">
+<div class="grid md:grid-cols-2 gap-4">
     {#each $data as u (u.name)}
         <div>
             <span>Hvem er {u.original}?</span>
