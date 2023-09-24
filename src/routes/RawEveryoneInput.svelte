@@ -3,7 +3,8 @@
     import {onMount} from "svelte";
     import {textareaCols} from "$lib/constants";
 
-    let rawEveryone = "Rachana Cokkie Cheng\n" +
+    let rawEveryone = "" +
+        "Rachana Cokkie Cheng\n" +
         "Marina Samson Slávka\n" +
         "Kemuel Misho Hurşit\n" +
         "Sintija Sid Aleksey\n" +

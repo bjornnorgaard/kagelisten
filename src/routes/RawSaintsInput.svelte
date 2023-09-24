@@ -3,7 +3,8 @@
     import {rawSaints, saints} from "$lib/stores";
     import {textareaCols} from "$lib/constants";
 
-    let rawSaintsString = "Mandag d. XX/XX\n" +
+    let rawSaintsString = "" +
+        "Mandag d. XX/XX\n" +
         "Kage: Rachana Cokkie Cheng\n" +
         "Kage: Marina Samson Slávka\n" +
         "Kage: Kemuel Misho Hurşit\n" +
