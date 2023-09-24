@@ -41,7 +41,7 @@
     }
 </script>
 
-<label>
-    <b>De Artige</b>
+<label class="raw-input-container">
+    <h3>De Artige</h3>
     <textarea rows={textareaCols} bind:value={rawSaintsString} on:input={parseInput}></textarea>
 </label>

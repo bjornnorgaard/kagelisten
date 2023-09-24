@@ -1,7 +1,7 @@
 <script lang="ts">
-    import {everyone} from "$lib/stores";
-    import {onMount} from "svelte";
-    import {textareaCols} from "$lib/constants";
+    import { everyone } from "$lib/stores";
+    import { onMount } from "svelte";
+    import { textareaCols } from "$lib/constants";
 
     let rawEveryone = "" +
         "Rachana Cokkie Cheng\n" +
@@ -10,6 +10,9 @@
         "Sintija Sid Aleksey\n" +
         "Artur Ceres Aruna\n" +
         "Michael Bojsen-Hansen\n" +
+        "Michael Derp Hansen\n" +
+        "Some Bojsen Hansen\n" +
+        "Miheala Hansen Boje\n" +
         "Emma Jørgensen\n" +
         "Simon Larsen\n" +
         "Lars Kristensen\n" +
@@ -26,7 +29,7 @@
     }
 </script>
 
-<label>
-    <b>Allesammen</b>
+<label class="raw-input-container">
+    <h3>Allesammen</h3>
     <textarea rows={textareaCols} bind:value={rawEveryone} on:input={parseInput}></textarea>
 </label>

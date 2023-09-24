@@ -1,1 +1,1 @@
-export const textareaCols = 5;
+export const textareaCols = 7;

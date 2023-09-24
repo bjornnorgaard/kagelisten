@@ -29,17 +29,15 @@
 
 </script>
 
-<div class="flex flex-wrap">
+<div class="">
     {#each $data as u (u.name)}
-        <div class="basis-1/2 p-2">
+        <div class="">
             {#if replacements.get(u.original) && replacements.get(u.original) !== u.original}
                 <b>{replacements.get(u.original)}</b>
                 <span class="line-through">{u.original}</span>
             {:else}
                 <b>{u.name}</b>
             {/if}
-
-            <br>
 
             <fieldset>
                 {#if u.suggestions.length}
@@ -66,9 +64,7 @@
     {/each}
 </div>
 
-<br>
-
-<ul class="p-6">
+<ul>
     {#each replacements as [k, v]}
         <li>{k} bliver til "{v}"</li>
     {/each}

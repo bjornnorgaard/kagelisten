@@ -5,23 +5,20 @@
     import UnknownMatcher from "./UnknownMatcher.svelte";
 </script>
 
-<article>
+<section>
     <h2>Copy/paste data</h2>
-    <div class="grid">
+    <div class="sm:flex sm:gap-4">
         <RawSaintsInput/>
         <RawEveryoneInput/>
     </div>
-</article>
+</section>
 
-<article>
+<section>
     <h2>Ret ukendte</h2>
     <div>
         <UnknownMatcher/>
     </div>
-</article>
-
-
-<br>
+</section>
 
 <div class="flex gap-4">
     <pre>{JSON.stringify($everyone, null, 2)}</pre>
