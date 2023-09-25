@@ -28,20 +28,19 @@
         return names;
     }
 
+    let copyButtonMessage = "Kopier ny liste til udklipsholder";
+
     function copyUpdatedList() {
+        const temp = copyButtonMessage;
+        copyButtonMessage = "Kopieret!";
         navigator.clipboard.writeText($rawSaints);
+        setTimeout(() => copyButtonMessage = temp, 2000);
     }
 </script>
 
 {#if $spots.length}
-    <p class="message">Der er {$slackers.length} slackere og {$spots.length} ledige pladser.</p>
+    <p class="text-center">Der er {$slackers.length} slackere og {$spots.length} ledige pladser.</p>
     <button on:click={completeSchedule} disabled={!$spots.length}>Udfyld ledige pladser</button>
 {:else}
-    <button on:click={() => copyUpdatedList()}>Kopier ny liste til udklipsholder</button>
+    <button on:click={() => copyUpdatedList()}>{copyButtonMessage}</button>
 {/if}
-
-<style>
-    .message {
-        @apply text-center;
-    }
-</style>
