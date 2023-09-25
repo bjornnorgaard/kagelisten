@@ -37,8 +37,7 @@
     <p class="message">Der er {$slackers.length} slackere og {$spots.length} ledige pladser.</p>
     <button on:click={completeSchedule} disabled={!$spots.length}>Udfyld ledige pladser</button>
 {:else}
-    <p class="message">Alle pladser er udfyldte.</p>
-    <button on:click={() => copyUpdatedList()}>Kopier til udklipsholder</button>
+    <button on:click={() => copyUpdatedList()}>Kopier ny liste til udklipsholder</button>
 {/if}
 
 <style>

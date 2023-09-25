@@ -13,25 +13,27 @@
     $: hasSlackers = !!$slackers.length;
 </script>
 
-<section class="grid">
-    <RawSaintsInput/>
-    <RawEveryoneInput/>
-</section>
-
-{#if hasData && hasUnknowns}
-    <section in:slide out:slide>
-        <UnknownMatcher/>
+<article>
+    <section class="grid">
+        <RawSaintsInput/>
+        <RawEveryoneInput/>
     </section>
-{/if}
 
-{#if hasData && !hasUnknowns}
-    <section in:slide out:slide>
-        <Schedule/>
-    </section>
-{/if}
+    {#if hasData && hasUnknowns}
+        <section in:slide out:slide>
+            <UnknownMatcher/>
+        </section>
+    {/if}
 
-{#if !hasSpots && hasSlackers }
-    <section in:slide out:slide>
-        <Slackers/>
-    </section>
-{/if}
+    {#if hasData && !hasUnknowns}
+        <section in:slide out:slide>
+            <Schedule/>
+        </section>
+    {/if}
+
+    {#if !hasSpots && hasSlackers }
+        <section in:slide out:slide>
+            <Slackers/>
+        </section>
+    {/if}
+</article>

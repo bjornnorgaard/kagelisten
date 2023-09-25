@@ -73,7 +73,7 @@
 <div class="grid grid-cols-1 place-items-center items-center gap-4 md:grid-cols-2">
     {#each $unknownNamesWithSuggestions as u (u.name)}
         <div class="h-full w-full place-self-center" animate:flip={{duration:500}}>
-            <span>Hvem er <b class="text-blue-400">{u.original}</b>?</span>
+            <span>Hvem er <b class="text-[--primary]">{u.original}</b>?</span>
             <fieldset class="my-2 ml-2">
                 {#if u.suggestions.length}
                     {#each u.suggestions as s (s.item)}
@@ -97,7 +97,8 @@
     {/each}
 </div>
 
+<br>
+
 <button disabled={!replacements.size} on:click={() => confirmChanges()}>
     Bekræft ændringer og overskriv 'De Artige'
 </button>
-
