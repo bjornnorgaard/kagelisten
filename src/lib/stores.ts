@@ -16,3 +16,29 @@ export const saints = derived(rawSaints, ($rawSaints) => {
 export const unknown = derived([saints, everyone], ([$saints, $everyone]) => {
     return $saints.filter((name) => !$everyone.includes(name));
 });
+
+export const slackers = derived([ saints, everyone ], ([ $saints, $everyone ]) => {
+    return $everyone.filter(e => !$saints.includes(e));
+});
+
+export interface AvailableSpot {
+    lineIndex: number;
+    what: string;
+    who: string;
+}
+
+export const spots = derived(rawSaints, $rawSaints => {
+    const lines = $rawSaints.split("\n");
+    const availableSpots: AvailableSpot[] = [];
+
+    for (let i = 0; i < lines.length; i++) {
+        if (lines[i].includes(":")) {
+            const split = lines[i].split(":");
+            const who: string = split[1].trim();
+            if (who) continue;
+            availableSpots.push({ lineIndex: i, what: split[0], who: who });
+        }
+    }
+
+    return availableSpots;
+})

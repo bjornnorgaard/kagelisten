@@ -1,32 +1,5 @@
 <script lang="ts">
-    import { everyone, rawSaints, saints } from "$lib/stores";
-    import { derived } from "svelte/store";
-
-    interface AvailableSpot {
-        lineIndex: number;
-        what: string;
-        who: string;
-    }
-
-    const slackers = derived([ saints, everyone ], ([ $saints, $everyone ]) => {
-        return $everyone.filter(e => !$saints.includes(e));
-    });
-
-    const spots = derived(rawSaints, $rawSaints => {
-        const lines = $rawSaints.split("\n");
-        const availableSpots: AvailableSpot[] = [];
-
-        for (let i = 0; i < lines.length; i++) {
-            if (lines[i].includes(":")) {
-                const split = lines[i].split(":");
-                const who: string = split[1].trim();
-                if (who) continue;
-                availableSpots.push({ lineIndex: i, what: split[0], who: who });
-            }
-        }
-
-        return availableSpots;
-    })
+    import { rawSaints, saints, slackers, spots } from "$lib/stores";
 
     function completeSchedule() {
         const names = getNamesForMissingSpots();
