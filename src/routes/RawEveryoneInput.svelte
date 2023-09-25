@@ -1,8 +1,15 @@
 <script lang="ts">
     import { everyone } from "$lib/stores";
     import { textareaCols } from "$lib/constants";
+    import { onMount } from "svelte";
 
     let rawEveryone: string = "";
+
+    onMount(() => {
+        everyone.subscribe(names => {
+            rawEveryone = names.join("\n");
+        });
+    });
 
     function parseInput() {
         if (!rawEveryone) return;

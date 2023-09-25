@@ -62,13 +62,19 @@
             return rawSaintsValue;
         })
     }
+
+    function addToEveryone(name: string) {
+        everyone.update(e => {
+            return [ ...e, name ];
+        })
+    }
 </script>
 
 <div class="grid grid-cols-1 place-items-center items-center gap-4 md:grid-cols-2">
     {#each $unknownNamesWithSuggestions as u (u.name)}
         <div class="h-full w-full place-self-center" animate:flip={{duration:500}}>
             <span>Hvem er <b class="text-blue-400">{u.original}</b>?</span>
-            <fieldset class="mt-2 ml-2">
+            <fieldset class="my-2 ml-2">
                 {#if u.suggestions.length}
                     {#each u.suggestions as s (s.item)}
                         <label class="cursor-pointer" animate:flip>
@@ -84,6 +90,9 @@
                     <legend>Fandt ingen mulige rettelser</legend>
                 {/if}
             </fieldset>
+            <button class="h-fit w-fit py-0 ml-2 outline" on:click={() => addToEveryone(u.original)}>
+                '{u.original}' er korrekt
+            </button>
         </div>
     {/each}
 </div>
