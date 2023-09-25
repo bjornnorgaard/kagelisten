@@ -1,7 +1,7 @@
 <script lang="ts">
-    import {onMount} from "svelte";
-    import {rawSaints} from "$lib/stores";
-    import {textareaCols} from "$lib/constants";
+    import { onMount } from "svelte";
+    import { rawSaints } from "$lib/stores";
+    import { textareaCols } from "$lib/constants";
 
     const testData = "Mandag d. XX/XX\n" +
         "Kage: Rachana Cokkie Cheng\n" +
