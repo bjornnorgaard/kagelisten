@@ -1,22 +1,28 @@
 <script>
     import RawSaintsInput from "./RawSaintsInput.svelte";
     import RawEveryoneInput from "./RawEveryoneInput.svelte";
-    import { everyone, rawSaints, saints, unknown } from "$lib/stores";
+    import {everyone, rawSaints, saints, unknown} from "$lib/stores";
     import UnknownMatcher from "./UnknownMatcher.svelte";
-    import { slide } from "svelte/transition";
-    import { page } from "$app/stores";
+    import {slide} from "svelte/transition";
+    import {page} from "$app/stores";
+    import Schedule from "./Schedule.svelte";
 </script>
 
 <section class="grid">
-    <RawSaintsInput />
-    <RawEveryoneInput />
+    <RawSaintsInput/>
+    <RawEveryoneInput/>
 </section>
 
 {#if $unknown.length && $everyone.length && $rawSaints.length}
     <section in:slide out:slide>
-        <UnknownMatcher />
+        <UnknownMatcher/>
     </section>
 {/if}
+
+<section>
+    <Schedule/>
+</section>
+
 
 {#if $page.url.toString().includes("localhost")}
     <div class="grid">
