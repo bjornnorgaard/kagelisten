@@ -19,7 +19,6 @@
             "Artur Ceres Aruna\n" +
             "Michael Bojsen-Hansen\n" +
             "Michael Derp Hansen\n" +
-            "Some Bojsen Hansen\n" +
             "Miheala Hansen Boje\n" +
             "Emma Jørgensen\n" +
             "Jørgen Emmason\n" +
@@ -31,7 +30,7 @@
     }
 </script>
 
-<label class="raw-input-container">
-    <span on:click={() => setTestData()}>Allesammen</span>
+<label>
+    <b on:click={() => setTestData()}>Allesammen</b>
     <textarea rows={textareaCols} bind:value={rawEveryone} on:input={parseInput}></textarea>
 </label>

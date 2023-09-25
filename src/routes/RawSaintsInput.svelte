@@ -10,7 +10,6 @@
         "Kage: Sintija Sid Aleksey\n" +
         "Kage: Artur Ceres Aruna\n" +
         "Kage: Mikhael Bøjsen Hansen\n" +
-        "Kage: John Han Bojsen\n" +
         "Kage: Emma Jørgensen\n" +
         "Kage: Jørgen Emmason\n" +
         "Kage: Emma\n" +
@@ -26,7 +25,7 @@
     }
 </script>
 
-<label class="raw-input-container">
-    <span on:click={() => rawSaints.set(testData)}>De Artige</span>
+<label>
+    <b on:click={() => rawSaints.set(testData)}>De Artige</b>
     <textarea rows={textareaCols} bind:value={$rawSaints} on:input={parseInput}></textarea>
 </label>

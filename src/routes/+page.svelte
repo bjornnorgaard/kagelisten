@@ -1,11 +1,13 @@
 <script>
     import RawSaintsInput from "./RawSaintsInput.svelte";
     import RawEveryoneInput from "./RawEveryoneInput.svelte";
-    import {everyone, rawSaints, saints, unknown} from "$lib/stores";
+    import { everyone, rawSaints, unknown } from "$lib/stores";
     import UnknownMatcher from "./UnknownMatcher.svelte";
-    import {slide} from "svelte/transition";
-    import {page} from "$app/stores";
+    import { slide } from "svelte/transition";
     import Schedule from "./Schedule.svelte";
+
+    $: hasData = $everyone.length && $rawSaints.length;
+    $: hasUnknowns = $unknown.length && hasData;
 </script>
 
 <section class="grid">
@@ -13,22 +15,14 @@
     <RawEveryoneInput/>
 </section>
 
-{#if $unknown.length && $everyone.length && $rawSaints.length}
+{#if hasData && hasUnknowns}
     <section in:slide out:slide>
         <UnknownMatcher/>
     </section>
 {/if}
 
-<section>
-    <Schedule/>
-</section>
-
-
-{#if $page.url.toString().includes("localhost")}
-    <div class="grid">
-        <pre>Everyone{JSON.stringify($everyone, null, 2)}</pre>
-        <pre>RawSaints{JSON.stringify($rawSaints.split("\n"), null, 2)}</pre>
-        <pre>Saints{JSON.stringify($saints, null, 2)}</pre>
-        <pre>Unknown{JSON.stringify($unknown, null, 2)}</pre>
-    </div>
+{#if hasData && !hasUnknowns}
+    <section>
+        <Schedule/>
+    </section>
 {/if}

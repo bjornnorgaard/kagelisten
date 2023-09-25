@@ -2,7 +2,3 @@
 /* @tailwind base; */
 /* @tailwind components; */
 @tailwind utilities;
-
-.raw-input-container {
-    @apply flex w-full flex-col;
-}
