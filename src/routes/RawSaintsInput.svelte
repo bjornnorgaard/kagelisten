@@ -23,9 +23,15 @@
     function parseInput() {
         rawSaints.set($rawSaints);
     }
+
+    async function onFocus() {
+        if ($rawSaints.length) return;
+        const text = await navigator.clipboard.readText();
+        rawSaints.set(text);
+    }
 </script>
 
 <label>
     <b on:click={() => rawSaints.set(testData)}>De Artige</b>
-    <textarea rows={textareaCols} bind:value={$rawSaints} on:input={parseInput}></textarea>
+    <textarea rows={textareaCols} bind:value={$rawSaints} on:focus={() => onFocus()} on:input={parseInput}></textarea>
 </label>

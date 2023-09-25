@@ -1,6 +1,6 @@
 <script lang="ts">
-    import {everyone} from "$lib/stores";
-    import {textareaCols} from "$lib/constants";
+    import { everyone } from "$lib/stores";
+    import { textareaCols } from "$lib/constants";
 
     let rawEveryone: string = "";
 
@@ -28,9 +28,15 @@
             "Emma Gad\n";
         parseInput();
     }
+
+    async function onFocus() {
+        if (rawEveryone.length) return;
+        rawEveryone = await navigator.clipboard.readText();
+        parseInput();
+    }
 </script>
 
 <label>
     <b on:click={() => setTestData()}>Allesammen</b>
-    <textarea rows={textareaCols} bind:value={rawEveryone} on:input={parseInput}></textarea>
+    <textarea rows={textareaCols} bind:value={rawEveryone} on:focus={() => onFocus()} on:input={parseInput}></textarea>
 </label>
