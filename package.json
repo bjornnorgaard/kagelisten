@@ -14,7 +14,7 @@
 		"@picocss/pico": "^1.5.10",
 		"@sveltejs/adapter-vercel": "^3.0.3",
 		"@sveltejs/kit": "^1.25.1",
-		"@vercel/analytics": "^1.0.2",
+		"@vercel/analytics": "^1.1.0",
 		"autoprefixer": "^10.4.16",
 		"fuse.js": "^6.6.2",
 		"postcss": "^8.4.31",
