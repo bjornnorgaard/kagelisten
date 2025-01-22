@@ -18,13 +18,7 @@ export const unknown = derived([ saints, everyone ], ([ $saints, $everyone ]) =>
 });
 
 export const slackers = derived([ saints, everyone ], ([ $saints, $everyone ]) => {
-    return $everyone.filter(e => !$saints.includes(e)).map(n => {
-        const names = n.split(" ");
-        if (names.length < 4) {
-            return n;
-        }
-        return `${names[0]} Idiot ${names.reverse()[0]}`;
-    });
+    return $everyone.filter(e => !$saints.includes(e));
 });
 
 export interface AvailableSpot {
