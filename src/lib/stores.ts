@@ -19,10 +19,11 @@ export const unknown = derived([ saints, everyone ], ([ $saints, $everyone ]) =>
 
 export const slackers = derived([ saints, everyone ], ([ $saints, $everyone ]) => {
     return $everyone.filter(e => !$saints.includes(e)).map(n => {
-        const names = n.split(" ");
-        if (names.length > 3) {
-            return `${names[0]} Idiot ${names.reverse()[0]}`;
+        if (n.length < 4) {
+            return n;
         }
+        const names = n.split(" ");
+        return `${names[0]} Idiot ${names.reverse()[0]}`;
     });
 });
 
