@@ -13,12 +13,17 @@ export const saints = derived(rawSaints, ($rawSaints) => {
         .filter(name => name.length > 0);
 });
 
-export const unknown = derived([saints, everyone], ([$saints, $everyone]) => {
+export const unknown = derived([ saints, everyone ], ([ $saints, $everyone ]) => {
     return $saints.filter((name) => !$everyone.includes(name));
 });
 
 export const slackers = derived([ saints, everyone ], ([ $saints, $everyone ]) => {
-    return $everyone.filter(e => !$saints.includes(e));
+    return $everyone.filter(e => !$saints.includes(e)).map(n => {
+        const names = n.split(" ");
+        if (names.length > 3) {
+            return `${names[0]} Idiot ${names.reverse()[0]}`;
+        }
+    });
 });
 
 export interface AvailableSpot {
