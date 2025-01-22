@@ -4,15 +4,15 @@
     import { textareaCols } from "$lib/constants";
 
     const testData = "Mandag d. XX/XX\n" +
-        "Kage: Rachana Cokkie Cheng\n" +
-        "Kage: Marina Samson Slávkap\n" +
-        "Kage: Kemuel Misho Hurşit\n" +
-        "Kage: Sintija Sid Aleksey\n" +
-        "Kage: Artur Ceres Aruna\n" +
-        "Kage: Mikhael Bøjsen Hansen\n" +
-        "Kage: Emma Jørgensen\n" +
-        "Kage: Jørgen Emmason\n" +
-        "Kage: Emma\n" +
+        "Kage: Ander Åkjær\n" +
+        "Kage: Børge Bissen\n" +
+        "Kage: Charlie Low\n" +
+        "Kage: Dan Tyrel\n" +
+        "Kage: Figgo Fiskarl\n" +
+        "Kage: George Geoløs\n" +
+        "Kage: Hans Hinterseer\n" +
+        "Kage: Ivar Vladimir\n" +
+        "Kage: Jørgen Utson\n" +
         "Kage:\n" +
         "Frugt:\n" +
         "Frugt:\n" +
@@ -24,14 +24,9 @@
         rawSaints.set($rawSaints);
     }
 
-    async function onFocus() {
-        if ($rawSaints.length) return;
-        const text = await navigator.clipboard.readText();
-        rawSaints.set(text);
-    }
 </script>
 
 <label>
     <b on:click={() => rawSaints.set(testData)}>De Artige {$saints.length ? `(${$saints.length})` : ""}</b>
-    <textarea rows={textareaCols} bind:value={$rawSaints} on:focus={() => onFocus()} on:input={parseInput}></textarea>
+    <textarea rows={textareaCols} bind:value={$rawSaints} on:input={parseInput}></textarea>
 </label>

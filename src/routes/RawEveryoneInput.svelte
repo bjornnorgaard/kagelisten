@@ -19,31 +19,25 @@
     }
 
     function setTestData() {
-        rawEveryone = "Rachana Cokkie Cheng\n" +
-            "Marina Samson Slávkap\n" +
-            "Kemuel Misho Hurşit\n" +
-            "Sintija Sid Aleksey\n" +
-            "Artur Ceres Aruna\n" +
-            "Michael Bojsen-Hansen\n" +
-            "Michael Derp Hansen\n" +
-            "Miheala Hansen Boje\n" +
-            "Emma Jørgensen\n" +
-            "Jørgen Emmason\n" +
-            "Simon Larsen\n" +
-            "Lars Kristensen\n" +
-            "Jørgen Hansi\n" +
-            "Emma Gad\n";
-        parseInput();
-    }
-
-    async function onFocus() {
-        if (rawEveryone.length) return;
-        rawEveryone = await navigator.clipboard.readText();
+        rawEveryone = "Ander Åkjær\n" +
+            "Børge Bissen\n" +
+            "Charlie Low\n" +
+            "Dan Tyrel\n" +
+            "Figgo Fiskarl\n" +
+            "George Geoløs\n" +
+            "Hans Hinterseer\n" +
+            "Ivar Vladimir\n" +
+            "Jørgen Utson\n" +
+            "Kim Kardas\n" +
+            "Lars Larsen\n" +
+            "Michael Boyesen-Hansen\n" +
+            "Nanna Nansen\n" +
+            "Ole Olsen\n";
         parseInput();
     }
 </script>
 
 <label>
     <b on:click={() => setTestData()}>Allesammen {$everyone.length ? `(${$everyone.length})` : ""}</b>
-    <textarea rows={textareaCols} bind:value={rawEveryone} on:focus={() => onFocus()} on:input={parseInput}></textarea>
+    <textarea rows={textareaCols} bind:value={rawEveryone} on:input={parseInput}></textarea>
 </label>
