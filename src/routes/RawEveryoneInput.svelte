@@ -44,6 +44,6 @@
 </script>
 
 <label>
-    <b on:click={() => setTestData()}>Allesammen ({rawEveryone.split("\n").length})</b>
+    <b on:click={() => setTestData()}>Allesammen {$everyone.length ? `(${$everyone.length})` : ""}</b>
     <textarea rows={textareaCols} bind:value={rawEveryone} on:focus={() => onFocus()} on:input={parseInput}></textarea>
 </label>

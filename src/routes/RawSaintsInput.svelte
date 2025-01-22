@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { rawSaints } from "$lib/stores";
+    import { rawSaints, saints } from "$lib/stores";
     import { textareaCols } from "$lib/constants";
 
     const testData = "Mandag d. XX/XX\n" +
@@ -32,6 +32,6 @@
 </script>
 
 <label>
-    <b on:click={() => rawSaints.set(testData)}>De Artige</b>
+    <b on:click={() => rawSaints.set(testData)}>De Artige {$saints.length ? `(${$saints.length})` : ""}</b>
     <textarea rows={textareaCols} bind:value={$rawSaints} on:focus={() => onFocus()} on:input={parseInput}></textarea>
 </label>
