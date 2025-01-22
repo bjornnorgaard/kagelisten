@@ -13,19 +13,21 @@
     }
 
     function getNamesForMissingSpots(): string[] {
-        let names = [ ...$slackers ];
+        let availableNames = [ ...$slackers ]
+            .sort(() => Math.random() - 0.5);
 
-        let missingSlackerCount = $spots.length - names.length;
-        if (missingSlackerCount) {
-            let missingSaints: string[] = $saints
-                .sort(() => Math.random() - 0.5)
-                .slice(0, missingSlackerCount);
-
-            names.push(...missingSaints);
+        if ($spots.length <= availableNames.length) {
+            availableNames = availableNames.slice(0, $spots.length);
+            return availableNames;
         }
 
-        names = names.sort(() => Math.random() - 0.5);
-        return names;
+        const neededSaints = $spots.length - availableNames.length;
+        let addedSaints = $saints
+            .sort(() => Math.random() - 0.5)
+            .slice(0, neededSaints);
+
+        availableNames = [ ...addedSaints, ...availableNames ];
+        return availableNames;
     }
 
     let copyButtonMessage = "Kopier ny liste til udklipsholder";
